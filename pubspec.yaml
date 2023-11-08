@@ -30,7 +30,7 @@ environment:
 dependencies:
   google_nav_bar:
   line_icons:
-  
+  sqflite:
   flutter_staggered_grid_view:
   curved_navigation_bar:
   font_awesome_flutter: ^10.6.0

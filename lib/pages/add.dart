@@ -7,8 +7,36 @@ class AddPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        elevation: 0.2,
+        leading: IconButton(
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        backgroundColor: Colors.white,
+      ),
       backgroundColor: cBackGround,
-      body: Center(child: Text("Add Cart"),),
+      body: const SafeArea(
+          child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          children: [
+            TextField(
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              cursorHeight: 30,
+              decoration: InputDecoration(
+                border: InputBorder.none,
+              ),
+            ),
+            TextField(style: TextStyle(fontSize: 20),)
+          ],
+        ),
+      )),
     );
   }
 }
