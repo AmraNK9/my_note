@@ -33,7 +33,7 @@ class AddPage extends StatelessWidget {
                 border: InputBorder.none,
               ),
             ),
-            TextField(style: TextStyle(fontSize: 20),)
+            TextField(maxLines: 10, style:  TextStyle(fontSize: 20),decoration: InputDecoration(border: InputBorder.none),)
           ],
         ),
       )),
