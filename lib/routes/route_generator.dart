@@ -16,7 +16,7 @@ class RouteGenerator{
       case rHomePage:
         return MaterialPageRoute(builder: (context) => HomePage(),);
       case rDetailPage:
-        return MaterialPageRoute(builder: (context) => DetailPage());
+        return MaterialPageRoute(builder: (context) => DetailPage(note: arg,));
       case rAddPage:
         return MaterialPageRoute(builder: (context) => AddPage());
       case rEdtiPage:

@@ -1,15 +1,21 @@
-import 'package:flutter/material.dart';
+import "package:flutter/material.dart";
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_note/business_logic/bloc/task_bloc.dart';
 import 'package:my_note/constant/color.dart';
+import 'package:my_note/models/Notes.dart';
 
 class AddPage extends StatelessWidget {
   const AddPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    TaskBloc taskBloc = context.read<TaskBloc>();
+    TextEditingController title = TextEditingController();
+     TextEditingController content = TextEditingController();
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {taskBloc.add(Add(note: Note(title: title.text,content: content.text)));},
         backgroundColor: cPrimary,
         child: const Icon(FontAwesomeIcons.floppyDisk),
       ),
@@ -29,21 +35,24 @@ class AddPage extends StatelessWidget {
       backgroundColor: cBackGround,
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: ListView(
-          children: const [
+          children:  [
             TextField(
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               cursorHeight: 30,
-              decoration: InputDecoration(
+              controller: title,
+              decoration: const InputDecoration(
                 hintText: 'Title',
                 border: InputBorder.none,
+                
               ),
             ),
             TextField(
+              controller: content,
               maxLines: 60,
-              style: TextStyle(fontSize: 20),
-              decoration: InputDecoration(
+              style: const TextStyle(fontSize: 20),
+              decoration: const InputDecoration(
                   hintText: "Someting...", border: InputBorder.none),
             )
           ],
